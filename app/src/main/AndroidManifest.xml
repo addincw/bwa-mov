@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+        package="com.addincendekia.bwa_mov">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-permission-sdk-23 android:name="android.permission.INTERNET" />
+    <uses-permission-sdk-23 android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission-sdk-23 android:name="android.permission.CAMERA" />
+
+    <uses-feature
+            android:name="android.hadware.camera"
+            android:required="true" />
+
+    <application
+            android:allowBackup="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:roundIcon="@mipmap/ic_launcher_round"
+            android:supportsRtl="true"
+            android:theme="@style/AppTheme.noActionBar">
+        <activity android:name=".ProfileActivity"></activity>
+        <activity android:name=".WalletActivity" />
+        <activity android:name=".MovieActivity" />
+        <activity android:name=".ticket.CheckoutPreviewActivity" />
+        <activity android:name=".ticket.TicketActivity" />
+        <activity android:name=".ticket.TicketDetailActivity" />
+        <activity android:name=".ticket.TicketHistoryActivity" />
+        <activity android:name=".ticket.CheckoutFinishActivity" />
+        <activity android:name=".ticket.CheckoutActivity" />
+        <activity android:name=".onboard.OnboardPlayingActivity" />
+        <activity android:name=".onboard.OnboardPresaleActivity" />
+        <activity android:name=".onboard.OnboardCashlessActivity" />
+        <activity android:name=".auth.SigninActivity" />
+        <activity android:name=".auth.SignupActivity" />
+        <activity android:name=".auth.SignupPhotoActivity" />
+        <activity android:name=".main.MainActivity" />
+        <activity android:name=".SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

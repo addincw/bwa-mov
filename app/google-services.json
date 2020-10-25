@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "198711711062",
+    "firebase_url": "https://pract-bwamov.firebaseio.com",
+    "project_id": "pract-bwamov",
+    "storage_bucket": "pract-bwamov.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:198711711062:android:e9cb088f3998683c44b2f7",
+        "android_client_info": {
+          "package_name": "com.addincendekia.bwa_mov"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "198711711062-l8hldurlf0uk7sbom4o5mmp0jl21jl48.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.addincendekia.bwa_mov",
+            "certificate_hash": "d0fa1b01666a4d88e2b4d6b02e4689733a6f58d7"
+          }
+        },
+        {
+          "client_id": "198711711062-ahcjhljlbogprf2j1rekf0gjajo2nfut.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVnDvN7ShTEwtdDfdc3NttP_Wv8TKgqIQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "198711711062-ahcjhljlbogprf2j1rekf0gjajo2nfut.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">bwa_mov</string>
+    <string name="onboard_action_skip">Lewati Perkenalan</string>
+    <string name="onboard_action_next">Lanjutkan</string>
+    <string name="onboard_playing_title">Now Playing</string>
+    <string name="onboard_playing_subtitle">Lebih mudah untuk mengetahui\nfilm yang sedang tampil</string>
+    <string name="onboard_presale_title">Pre Sale</string>
+    <string name="onboard_presale_subtitle">Tidak perlu khawatir ketinggalan update film terbaru</string>
+    <string name="onboard_cashless_title">Cashless</string>
+    <string name="onboard_cashless_subtitle">Gunakan e-wallet untuk transaksi tiket nonton</string>
+    <string name="onboard_action_done">Mulai Sekarang</string>
+    <string name="signin">Sign In</string>
+    <string name="field_username">Username</string>
+    <string name="field_password">Password</string>
+    <string name="signin_action_signin">Masuk Akun</string>
+    <string name="signin_action_signup">Daftar Akun Baru</string>
+    <string name="signup">Sign Up</string>
+    <string name="signup_action_next">Lanjutkan</string>
+    <string name="field_name">Nama</string>
+    <string name="field_email">Alamat Email</string>
+    <string name="photo">Photo</string>
+    <string name="signup_welcome">Welcome,</string>
+    <string name="signup_action_cancel_upload">Upload Nanti</string>
+    <string name="signup_action_save">Simpan Lanjutkan</string>
+    <string name="home_playing_title">Now Playing</string>
+    <string name="home_coming_title">Coming Soon</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="movie_storyboard">Storyboard</string>
+    <string name="movie_actor">Who\'s Playing</string>
+    <string name="movie_action_selecting_seat">Pilih Bangku</string>
+</resources>
