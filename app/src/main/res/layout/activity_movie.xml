@@ -69,14 +69,14 @@
                     android:text="7.8" />
 
             <ImageView
+                    android:id="@+id/iv_movie_poster"
                     android:layout_width="0dp"
                     android:layout_height="300dp"
-                    tools:srcCompat="@tools:sample/backgrounds/scenic"
-                    android:id="@+id/iv_movie_poster"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    android:scaleType="centerCrop"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:scaleType="centerCrop" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
             <TextView
                     android:layout_width="wrap_content"
@@ -139,5 +139,16 @@
                     app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginTop="20dp"
                     android:layout_marginStart="20dp" />
+
+            <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="98dp"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_movie_poster"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:srcCompat="@drawable/gradient_overlay" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
