@@ -30,4 +30,7 @@
     <string name="movie_storyboard">Storyboard</string>
     <string name="movie_actor">Who\'s Playing</string>
     <string name="movie_action_selecting_seat">Pilih Bangku</string>
+    <string name="checkout_title">Pilih Bangku</string>
+    <string name="checkout_movie_screen">LAYAR BIOSKOP</string>
+    <string name="checkout_action_buy">Beli Tiket</string>
 </resources>

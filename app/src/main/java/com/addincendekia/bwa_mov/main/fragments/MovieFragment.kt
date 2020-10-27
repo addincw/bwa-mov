@@ -25,7 +25,9 @@ import kotlinx.android.synthetic.main.fragment_movie.*
 
 import java.text.NumberFormat
 import androidx.core.app.ActivityCompat.finishAffinity
+import com.addincendekia.bwa_mov.MovieActivity
 import com.addincendekia.bwa_mov.auth.SigninActivity
+import com.addincendekia.bwa_mov.models.FilmActor
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -102,7 +104,7 @@ class MovieFragment : Fragment() {
                 val filmAdapter = FilmAdapter(films, R.layout.recycleview_film_card)
                 filmAdapter.setOnItemClickCallback(object : FilmAdapter.OnItemClickCallback {
                     override fun onItemClicked(film: Film) {
-                        Toast.makeText(context, film.judul, Toast.LENGTH_LONG).show()
+                        startActivity(Intent(context, MovieActivity::class.java).putExtra("film", film))
                     }
                 })
 

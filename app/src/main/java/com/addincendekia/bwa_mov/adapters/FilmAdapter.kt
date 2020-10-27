@@ -35,7 +35,6 @@ class FilmAdapter(private val filmData: ArrayList<Film>, private val layoutViewH
 
         Glide.with(holder.itemView.context)
             .load(film.poster)
-//            .apply(RequestOptions().override(55, 55))
             .into(holder.ivPoster)
 
         holder.tvJudul.text = film.judul

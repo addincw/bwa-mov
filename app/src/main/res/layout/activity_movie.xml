@@ -103,14 +103,15 @@
                     android:layout_marginTop="40dp" />
 
             <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_movie_actor"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_movie_actor"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="20dp"
                     android:clipToPadding="true"
                     android:paddingLeft="20dp"
-                    android:id="@+id/rv_movie_actor">
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_movie_actor">
 
             </androidx.recyclerview.widget.RecyclerView>
 

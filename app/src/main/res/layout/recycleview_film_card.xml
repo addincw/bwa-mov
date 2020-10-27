@@ -6,19 +6,30 @@
                                                    android:layout_height="match_parent">
 
     <TextView
+            android:id="@+id/tv_judul"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/tv_judul"
-            app:layout_constraintTop_toBottomOf="@+id/cardView" app:layout_constraintStart_toStartOf="parent"
-            tools:text="Guardian of the.."
-            android:layout_marginTop="5dp" android:textStyle="bold" android:textSize="18dp"
-            android:textColor="#FFFFFF"/>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:maxLength="11"
+            android:textAlignment="viewStart"
+            android:textColor="#FFFFFF"
+            android:textSize="14dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView"
+            tools:text="Guardian of the Galaxy" />
+
     <TextView
-            android:text="TextView"
+            android:id="@+id/tv_genre"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/tv_genre"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:maxLength="15"
+            android:text="TextView"
+            android:textColor="@color/colorAppAccent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_judul"
-            tools:text="sci-fi, actions" android:layout_marginTop="5dp" app:layout_constraintStart_toStartOf="parent"
-            android:textColor="@color/colorAppAccent"/>
+            tools:text="sci-fi, actions" />
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/tv_rating"
@@ -27,14 +38,20 @@
             app:layout_constraintBottom_toBottomOf="@+id/tv_genre"
             tools:text="7.8" android:layout_marginTop="16dp" android:drawableLeft="@drawable/ic_star_yellow_24dp"
             android:drawablePadding="5dp" android:textColor="@color/colorAppAccent"/>
+
     <androidx.cardview.widget.CardView
-            android:layout_width="182dp"
-            android:layout_height="244dp"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
-            android:id="@+id/cardView" app:cardCornerRadius="5dp">
+            android:id="@+id/cardView"
+            android:layout_width="142dp"
+            android:layout_height="204dp"
+            app:cardCornerRadius="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
         <ImageView
+                android:id="@+id/iv_poster"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" tools:srcCompat="@tools:sample/avatars"
-                android:id="@+id/iv_poster" android:scaleType="centerCrop"/>
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                tools:srcCompat="@tools:sample/avatars" />
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
