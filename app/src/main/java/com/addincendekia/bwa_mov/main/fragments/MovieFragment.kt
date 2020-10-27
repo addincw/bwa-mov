@@ -131,7 +131,14 @@ class MovieFragment : Fragment() {
                 val decorator = DividerItemDecoration(context, LinearLayoutManager.VERTICAL)
                 decorator.setDrawable(ContextCompat.getDrawable(activity!!.applicationContext, R.drawable.recycleview_devider)!!)
 
-                rvTarget.adapter = FilmAdapter(films, R.layout.recycleview_film_list)
+                val filmAdapter = FilmAdapter(films, R.layout.recycleview_film_list)
+                filmAdapter.setOnItemClickCallback(object : FilmAdapter.OnItemClickCallback {
+                    override fun onItemClicked(film: Film) {
+                        startActivity(Intent(context, MovieActivity::class.java).putExtra("film", film))
+                    }
+                })
+
+                rvTarget.adapter = filmAdapter
                 rvTarget.addItemDecoration(decorator)
             }
 

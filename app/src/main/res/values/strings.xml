@@ -33,4 +33,10 @@
     <string name="checkout_title">Pilih Bangku</string>
     <string name="checkout_movie_screen">LAYAR BIOSKOP</string>
     <string name="checkout_action_buy">Beli Tiket</string>
+    <string name="checkout_preview_title">Checkout</string>
+    <string name="preview_time">When</string>
+    <string name="preview_seat">Seats</string>
+    <string name="preview_wallet">E-Wallet</string>
+    <string name="preview_action_buy">BAYAR SEKARANG</string>
+    <string name="preview_action_cancel">BATALKAN</string>
 </resources>

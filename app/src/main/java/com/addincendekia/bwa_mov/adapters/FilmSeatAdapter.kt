@@ -16,7 +16,7 @@ class FilmSeatAdapter(private val filmSeatData: List<FilmSeat>) : RecyclerView.A
     private var onItemClickCallback: OnItemClickCallback? = null
 
     interface OnItemClickCallback {
-        fun onItemClicked(filmSeat: FilmSeat)
+        fun onItemClicked(filmSeat: FilmSeat, position: Int)
     }
 
     class SeatViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -36,11 +36,11 @@ class FilmSeatAdapter(private val filmSeatData: List<FilmSeat>) : RecyclerView.A
         val filmSeat = filmSeatData[position]
         var seatSate = R.drawable.movie_seat_empty
 
-        if(filmSeat.status!!.equals(1)) seatSate = R.drawable.movie_seat_booked
+        if(filmSeat.status!! == 1) seatSate = R.drawable.movie_seat_booked
+        else if (filmSeat.status!! == 2) seatSate = R.drawable.movie_seat_selected
 
         holder.ivSeat.setImageResource(seatSate)
-
-        holder.itemView.setOnClickListener { onItemClickCallback?.onItemClicked(filmSeat) }
+        holder.itemView.setOnClickListener { onItemClickCallback?.onItemClicked(filmSeat, position) }
     }
 
     fun setOnItemClickCallback(onItemClickCallback: FilmSeatAdapter.OnItemClickCallback) {

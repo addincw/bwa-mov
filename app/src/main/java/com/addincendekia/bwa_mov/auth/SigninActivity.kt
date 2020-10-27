@@ -78,7 +78,7 @@ class SigninActivity : AppCompatActivity() {
                     errMessage = "password does'nt match"
                 }
 
-                if (!errMessage.equals("")) {
+                if (errMessage != "") {
                     btn_signin.setText(R.string.signin_action_signin)
                     btn_signin.apply { isEnabled = true }
                     Toast.makeText(this@SigninActivity, errMessage, Toast.LENGTH_LONG).show()

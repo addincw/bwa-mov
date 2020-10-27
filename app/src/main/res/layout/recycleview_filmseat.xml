@@ -3,15 +3,13 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/colorAppBase">
+        android:layout_height="wrap_content">
 
     <ImageView
             android:id="@+id/iv_seat"
             android:layout_width="36dp"
             android:layout_height="36dp"
-            android:layout_marginRight="13dp"
-            android:layout_marginBottom="13dp"
+            android:layout_marginBottom="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
