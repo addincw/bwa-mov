@@ -50,7 +50,7 @@ class MovieActivity : AppCompatActivity() {
             finish()
         }
         btn_selecting_seat.setOnClickListener{
-            startActivity(Intent(this, CheckoutActivity::class.java))
+            startActivity(Intent(this, CheckoutActivity::class.java).putExtra("film_title", film.judul))
         }
     }
 

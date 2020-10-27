@@ -28,6 +28,10 @@ class CheckoutActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_checkout)
 
+        var filmTitle = intent.getStringExtra("film_title")
+
+        checkout_movie_title.text = filmTitle
+
         _fetchFilmSeat(rv_film_left_seat, seatLeft)
         _fetchFilmSeat(rv_film_right_seat, seatRight)
 
