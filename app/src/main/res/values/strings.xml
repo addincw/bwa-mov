@@ -39,4 +39,5 @@
     <string name="preview_wallet">E-Wallet</string>
     <string name="preview_action_buy">BAYAR SEKARANG</string>
     <string name="preview_action_cancel">BATALKAN</string>
+    <string name="preview_saldo_lessbalance">Saldo pada e-wallet anda tidak mencukupi untuk melakukan transaksi</string>
 </resources>

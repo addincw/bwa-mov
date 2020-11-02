@@ -8,17 +8,28 @@ class UserPreferences(val context: Context) {
         val USER_PREF = "USER_PREF"
     }
 
-    var sharedPref = context.getSharedPreferences(USER_PREF, 0)
+    private var sharedPref = context.getSharedPreferences(USER_PREF, 0)
+    private val accessPref: SharedPreferences.Editor = sharedPref.edit()
 
     fun setValue(key: String, value: String) {
-        val accessPref: SharedPreferences.Editor = sharedPref.edit()
-
         accessPref.putString(key, value)
+        accessPref.apply()
+    }
+    fun setValue(key: String, value: Set<String>) {
+        accessPref.putStringSet(key, value)
         accessPref.apply()
     }
 
     fun getValue(key: String): String? {
         return sharedPref.getString(key, "")
+    }
+    fun getValue(key: String, type: String = "string"): Set<String>? {
+        return sharedPref.getStringSet(key, setOf())
+    }
+
+    fun removeValue(key: String) {
+        accessPref.remove(key)
+        accessPref.apply()
     }
 
     fun reset() {

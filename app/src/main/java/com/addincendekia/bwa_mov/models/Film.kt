@@ -10,6 +10,7 @@ class Film() : Parcelable {
     var judul: String ?= ""
     var poster: String ?= ""
     var rating: String ?= ""
+//    var play: MutableList<FilmActor> ?= mutableListOf()
 
     constructor(parcel: Parcel) : this() {
         desc = parcel.readString()
@@ -18,6 +19,8 @@ class Film() : Parcelable {
         judul = parcel.readString()
         poster = parcel.readString()
         rating = parcel.readString()
+
+//        parcel.readTypedList(play, FilmActor.CREATOR)
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
@@ -27,6 +30,7 @@ class Film() : Parcelable {
         parcel.writeString(judul)
         parcel.writeString(poster)
         parcel.writeString(rating)
+//        parcel.writeTypedList(play)
     }
 
     override fun describeContents(): Int {

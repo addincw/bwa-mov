@@ -3,6 +3,7 @@ package com.addincendekia.bwa_mov.main.fragments
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -85,7 +86,7 @@ class MovieFragment : Fragment() {
     }
 
     private fun _fetchFilmNowPlaying(rvTarget: RecyclerView) {
-        fbDBFilmRef.addValueEventListener(object: ValueEventListener{
+        fbDBFilmRef.addValueEventListener(object : ValueEventListener {
             override fun onCancelled(dbError: DatabaseError) {
                 Toast.makeText(context, dbError.message, Toast.LENGTH_LONG).show()
             }
@@ -93,18 +94,28 @@ class MovieFragment : Fragment() {
             override fun onDataChange(data: DataSnapshot) {
                 films.clear()
 
-                for(newData in data.children) {
+                for (newData in data.children) {
                     var film = newData.getValue(Film::class.java)
                     films.add(film!!)
                 }
 
                 val decorator = DividerItemDecoration(context, LinearLayoutManager.HORIZONTAL)
-                decorator.setDrawable(ContextCompat.getDrawable(activity!!.applicationContext, R.drawable.recycleview_devider)!!)
+                decorator.setDrawable(
+                    ContextCompat.getDrawable(
+                        activity!!.applicationContext,
+                        R.drawable.recycleview_devider
+                    )!!
+                )
 
                 val filmAdapter = FilmAdapter(films, R.layout.recycleview_film_card)
                 filmAdapter.setOnItemClickCallback(object : FilmAdapter.OnItemClickCallback {
                     override fun onItemClicked(film: Film) {
-                        startActivity(Intent(context, MovieActivity::class.java).putExtra("film", film))
+                        startActivity(
+                            Intent(context, MovieActivity::class.java).putExtra(
+                                "film",
+                                film
+                            )
+                        )
                     }
                 })
 
