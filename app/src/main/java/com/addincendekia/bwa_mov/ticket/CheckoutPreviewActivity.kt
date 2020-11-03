@@ -57,6 +57,13 @@ class CheckoutPreviewActivity : AppCompatActivity() {
             finishAffinity()
             startActivity(Intent(this, MainActivity::class.java))
         }
+        btn_preview_buy.setOnClickListener{
+            userPref.removeValue("checkout_film")
+            userPref.removeValue("checkout_film_seats")
+
+            finishAffinity()
+            startActivity(Intent(this, CheckoutFinishActivity::class.java))
+        }
     }
 
     private fun _getCurrency(currency: Int?): String {

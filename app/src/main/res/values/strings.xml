@@ -40,4 +40,8 @@
     <string name="preview_action_buy">BAYAR SEKARANG</string>
     <string name="preview_action_cancel">BATALKAN</string>
     <string name="preview_saldo_lessbalance">Saldo pada e-wallet anda tidak mencukupi untuk melakukan transaksi</string>
+    <string name="checkout_finish_title">Happy Watching!</string>
+    <string name="checkout_finish_subtitle">Tiket telah berhasil dibeli, selamat menikmati film.</string>
+    <string name="checkout_finish_check_ticket">Lihat Tiket</string>
+    <string name="checkout_finish_go_home">Home</string>
 </resources>
