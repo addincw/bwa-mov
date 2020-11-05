@@ -12,4 +12,5 @@
     <color name="colorAppInfo">#668EC4</color>
     <color name="white">#FFFFFF</color>
     <color name="colorAppSuccess">#00FFCC</color>
+    <color name="black">#000000</color>
 </resources>

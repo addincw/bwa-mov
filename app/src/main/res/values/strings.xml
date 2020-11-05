@@ -44,4 +44,5 @@
     <string name="checkout_finish_subtitle">Tiket telah berhasil dibeli, selamat menikmati film.</string>
     <string name="checkout_finish_check_ticket">Lihat Tiket</string>
     <string name="checkout_finish_go_home">Home</string>
+    <string name="ticket_history_title">History</string>
 </resources>
