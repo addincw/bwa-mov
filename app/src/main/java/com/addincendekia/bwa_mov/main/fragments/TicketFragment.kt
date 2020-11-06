@@ -1,6 +1,7 @@
 package com.addincendekia.bwa_mov.main.fragments
 
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,10 +12,13 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.addincendekia.bwa_mov.MovieActivity
 
 import com.addincendekia.bwa_mov.R
 import com.addincendekia.bwa_mov.adapters.FilmAdapter
 import com.addincendekia.bwa_mov.models.Film
+import com.addincendekia.bwa_mov.ticket.TicketDetailActivity
+import com.addincendekia.bwa_mov.ticket.TicketHistoryActivity
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.fragment_ticket.*
 
@@ -49,7 +53,7 @@ class TicketFragment : Fragment() {
 
 
         iv_movie_history.setOnClickListener{
-//            startActivity(Intent(activity?.applicationContext, SigninActivity::class.java))
+            startActivity(Intent(activity?.applicationContext, TicketHistoryActivity::class.java))
         }
 
         rv_movies_perday.layoutManager = LinearLayoutManager(context)
@@ -74,6 +78,16 @@ class TicketFragment : Fragment() {
                 decorator.setDrawable(ContextCompat.getDrawable(activity!!.applicationContext, R.drawable.recycleview_devider)!!)
 
                 val filmAdapter = FilmAdapter(films, R.layout.recycleview_film_list)
+                filmAdapter.setOnItemClickCallback(object : FilmAdapter.OnItemClickCallback {
+                    override fun onItemClicked(film: Film) {
+                        startActivity(
+                            Intent(context, TicketDetailActivity::class.java).putExtra(
+                                "film",
+                                film
+                            )
+                        )
+                    }
+                })
 
                 tv_movies_perday.text = filmAdapter.itemCount.toString() + " Movies"
 
