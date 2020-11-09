@@ -60,7 +60,9 @@
                 android:paddingRight="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_coming_soon" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_coming_soon"
+                tools:listitem="@layout/recycleview_film_list"
+                tools:itemCount="3"/>
 
         <TextView
                 android:id="@+id/tv_now_playing"

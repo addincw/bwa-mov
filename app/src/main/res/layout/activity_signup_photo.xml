@@ -20,27 +20,35 @@
 
     <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
         <ImageView
-                android:src="@drawable/logo"
+                android:id="@+id/iv_avatar"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:id="@+id/iv_avatar"
-                app:srcCompat="@drawable/avatar_noimage" android:layout_marginTop="280dp"
-                android:layout_alignParentTop="true" android:layout_alignParentEnd="true"
-                android:layout_marginEnd="130dp" android:layout_alignParentStart="true"
-                android:layout_marginStart="130dp"/>
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="130dp"
+                android:layout_marginTop="280dp"
+                android:layout_marginEnd="130dp"
+                android:src="@drawable/logo"
+                app:srcCompat="@drawable/avatar_noimage" />
+
         <Button
+                android:id="@+id/btn_add_photo"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:id="@+id/btn_add_photo"
-                android:background="@drawable/button_circle_info"
-                android:drawableTop="@drawable/ic_add_white_24dp"
-                tools:layout_editor_absoluteY="415dp"
-                tools:layout_editor_absoluteX="281dp"
                 android:layout_alignRight="@+id/iv_avatar"
                 android:layout_alignBottom="@+id/iv_avatar"
-                tools:ignore="NotSibling"/>
+                android:background="@drawable/button_circle_info"
+                android:drawableTop="@drawable/ic_add_white_24dp"
+                tools:ignore="NotSibling"
+                tools:layout_editor_absoluteX="281dp"
+                tools:layout_editor_absoluteY="415dp" />
     </RelativeLayout>
 
     <Button

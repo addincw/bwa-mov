@@ -45,4 +45,11 @@
     <string name="checkout_finish_check_ticket">Lihat Tiket</string>
     <string name="checkout_finish_go_home">Home</string>
     <string name="ticket_history_title">History</string>
+    <string name="profile_wallet">My Wallet</string>
+    <string name="profile_edit">Edit Profile</string>
+    <string name="profile_language">Change Language</string>
+    <string name="profile_help">Help</string>
+    <string name="edit_save">Simpan</string>
+    <string name="wallet_amount_label">Saldo Tersedia</string>
+    <string name="wallet_history">Daftar Transaksi</string>
 </resources>
