@@ -187,11 +187,36 @@
                 android:layout_height="5dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
+                android:background="@drawable/line_accent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_profile_help" />
+
+        <TextView
+                android:id="@+id/tv_profile_signout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="25dp"
+                android:drawableStart="@drawable/ic_baseline_exit_to_app_accent_24"
+                android:drawablePadding="5dp"
+                android:text="@string/profile_signout"
+                android:textColor="@color/colorAppAccent"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider4" />
+
+        <View
+                android:id="@+id/divider5"
+                android:layout_width="0dp"
+                android:layout_height="5dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginBottom="55dp"
                 android:background="@drawable/line_accent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_profile_help" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_profile_signout" />
     </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>

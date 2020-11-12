@@ -7,10 +7,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.app.ActivityCompat
 import com.addincendekia.bwa_mov.ProfileActivity
 
 import com.addincendekia.bwa_mov.R
 import com.addincendekia.bwa_mov.WalletActivity
+import com.addincendekia.bwa_mov.auth.SigninActivity
 import com.addincendekia.bwa_mov.utils.UserPreferences
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -57,6 +59,14 @@ class ProfileFragment : Fragment() {
         }
         tv_profile_edit.setOnClickListener {
             startActivity(Intent(activity?.applicationContext, ProfileActivity::class.java))
+        }
+        tv_profile_signout.setOnClickListener {
+            ActivityCompat.finishAffinity(activity!!)
+
+            userPref.reset()
+            userPref.setValue("is_onboarding_done", "1")
+
+            startActivity(Intent(activity?.applicationContext, SigninActivity::class.java))
         }
     }
 

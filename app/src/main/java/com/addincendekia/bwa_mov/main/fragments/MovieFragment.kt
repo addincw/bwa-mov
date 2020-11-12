@@ -2,12 +2,15 @@ package com.addincendekia.bwa_mov.main.fragments
 
 
 import android.content.Intent
+import android.graphics.Typeface
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -25,10 +28,8 @@ import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.fragment_movie.*
 
 import java.text.NumberFormat
-import androidx.core.app.ActivityCompat.finishAffinity
 import com.addincendekia.bwa_mov.MovieActivity
-import com.addincendekia.bwa_mov.auth.SigninActivity
-import com.addincendekia.bwa_mov.models.FilmActor
+import com.addincendekia.bwa_mov.ProfileActivity
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -68,10 +69,7 @@ class MovieFragment : Fragment() {
         tv_saldo.text = "IDR " + _getCurrency(userPref.getValue("saldo")?.toDouble())
 
         iv_url.setOnClickListener{
-            finishAffinity(activity!!)
-
-            userPref.reset()
-            startActivity(Intent(activity?.applicationContext, SigninActivity::class.java))
+            startActivity(Intent(activity?.applicationContext, ProfileActivity::class.java))
         }
         Glide.with(this)
             .load(userPref.getValue("url"))
