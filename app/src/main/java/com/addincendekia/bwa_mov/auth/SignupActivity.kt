@@ -15,9 +15,12 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.activity_signup.*
+import java.io.File
 import java.io.IOException
 
 class SignupActivity : AppCompatActivity() {
+
+    private var takenPhoto: File? = null
 
     private lateinit var userPref: UserPreferences
     private lateinit var fieldUsername: String
@@ -40,7 +43,6 @@ class SignupActivity : AppCompatActivity() {
         userPref = UserPreferences(this)
         if (!userPref.getValue("username").equals("")) {
             field_username.setText(userPref.getValue("username"))
-//            field_password.setText(userPref.getValue("password"))
             field_nama.setText(userPref.getValue("nama"))
             field_email.setText(userPref.getValue("email"))
         }
