@@ -77,35 +77,33 @@ class SignupActivity : AppCompatActivity() {
     }
 
     private fun _requestSignup(newUser: User) {
-        var initfbListener = 0
         var fbDB = FirebaseDatabase.getInstance()
         var fbDBUserRef = fbDB.getReference("User")
 
-        fbDBUserRef.child(fieldUsername).addValueEventListener(object : ValueEventListener {
+        fbDBUserRef.child(fieldUsername).addListenerForSingleValueEvent(object : ValueEventListener{
             override fun onCancelled(err: DatabaseError) {
                 btn_next.setText(R.string.signup_action_next)
                 Toast.makeText(this@SignupActivity, err.message, Toast.LENGTH_LONG).show()
             }
 
             override fun onDataChange(data: DataSnapshot) {
-                var user = data.getValue(User::class.java)
+                if (data.getValue(User::class.java) != null) {
+                    btn_next.apply {
+                        setText(R.string.signup_action_next)
+                        isEnabled = true
+                    }
 
-                if (initfbListener <= 0 && user != null) {
-                    btn_next.setText(R.string.signup_action_next)
-                    btn_next.apply { isEnabled = true }
-
-                    //Log.d("[signup-failed]", "username sudah digunakan user lain")
                     Toast.makeText(this@SignupActivity, "username sudah digunakan user lain", Toast.LENGTH_LONG).show()
                     return
                 }
 
                 fbDBUserRef.child(fieldUsername).setValue(newUser)
-                initfbListener++
 
-                btn_next.setText(R.string.signup_action_next)
-                btn_next.apply { isEnabled = true }
+                btn_next.apply {
+                    setText(R.string.signup_action_next)
+                    isEnabled = true
+                }
 
-                //.d("[signup-success]", "registrasi success, username dan password dapat digunakan")
                 Toast.makeText(this@SignupActivity, "registrasi success, username dan password dapat digunakan", Toast.LENGTH_LONG).show()
 
                 if(_storeUserData(newUser)) {
@@ -115,12 +113,11 @@ class SignupActivity : AppCompatActivity() {
                     return
                 }
             }
-
         })
     }
 
     private fun _storeUserData(user: User?): Boolean {
-        try {
+        return try {
             userPref.setValue("username", user?.username.toString())
             userPref.setValue("nama", user?.nama.toString())
             userPref.setValue("email", user?.email.toString())
@@ -128,34 +125,34 @@ class SignupActivity : AppCompatActivity() {
             userPref.setValue("saldo", user?.saldo.toString())
             userPref.setValue("is_login", "1")
 
-            return true
+            true
         }catch (e: IOException){
-            return false
+            false
         }
     }
 
     private fun _validationField(): Boolean {
         var isError = false
 
-        if(fieldUsername.equals("")) {
+        if(fieldUsername == "") {
             isError = true
             field_username.error = "username cannot be null"
             field_username.requestFocus()
         }
 
-        if(fieldPassword.equals("")) {
+        if(fieldPassword == "") {
             isError = true
             field_password.error = "password cannot be null"
             field_password.requestFocus()
         }
 
-        if(fieldNama.equals("")) {
+        if(fieldNama == "") {
             isError = true
             field_nama.error = "nama cannot be null"
             field_nama.requestFocus()
         }
 
-        if(fieldEmail.equals("")) {
+        if(fieldEmail == "") {
             isError = true
             field_email.error = "email cannot be null"
             field_email.requestFocus()
