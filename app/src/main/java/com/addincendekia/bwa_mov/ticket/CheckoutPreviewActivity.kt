@@ -1,21 +1,17 @@
 package com.addincendekia.bwa_mov.ticket
 
 import android.content.Intent
-import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
 import androidx.core.content.ContextCompat
-import androidx.core.view.isVisible
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.addincendekia.bwa_mov.R
 import com.addincendekia.bwa_mov.adapters.CheckoutSeatAdapter
 import com.addincendekia.bwa_mov.main.MainActivity
+import com.addincendekia.bwa_mov.utils.Currency
 import com.addincendekia.bwa_mov.utils.UserPreferences
-import kotlinx.android.synthetic.main.activity_checkout.*
 import kotlinx.android.synthetic.main.activity_checkout_preview.*
-import kotlinx.android.synthetic.main.fragment_movie.*
 import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.*
@@ -36,8 +32,8 @@ class CheckoutPreviewActivity : AppCompatActivity() {
 
         tv_preview_time_date.text = currentDate
         tv_preview_time_location.text = "Tunjungan Plaza, Cinema 1"
-        tv_preview_total.text = "IDR " + _getCurrency(totalCheckout)
-        tv_saldo_balance.text = "IDR " + _getCurrency(userPref.getValue("saldo")?.toInt())
+        tv_preview_total.text = "IDR " + Currency(totalCheckout.toDouble()).toRupiah()
+        tv_saldo_balance.text = "IDR " + Currency(userPref.getValue("saldo")?.toDouble()).toRupiah()
         if(userPref.getValue("saldo")!!.toInt() < totalCheckout){
             tv_saldo_balance.setTextColor(ContextCompat.getColor(this, R.color.colorAppPrimary))
             tv_saldo_less_balance.visibility = TextView.VISIBLE
@@ -64,9 +60,5 @@ class CheckoutPreviewActivity : AppCompatActivity() {
             finishAffinity()
             startActivity(Intent(this, CheckoutFinishActivity::class.java))
         }
-    }
-
-    private fun _getCurrency(currency: Int?): String {
-        return NumberFormat.getInstance().format(currency)
     }
 }

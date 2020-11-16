@@ -3,6 +3,7 @@ package com.addincendekia.bwa_mov
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.addincendekia.bwa_mov.utils.Currency
 import com.addincendekia.bwa_mov.utils.UserPreferences
 import kotlinx.android.synthetic.main.activity_wallet.*
 import java.text.NumberFormat
@@ -16,14 +17,10 @@ class WalletActivity : AppCompatActivity() {
 
         userPref = UserPreferences(this)
 
-        tv_wallet_amount.text = "IDR " + _getCurrency(userPref.getValue("saldo")?.toDouble())
+        tv_wallet_amount.text = "IDR " + Currency(userPref.getValue("saldo")?.toDouble()).toRupiah()
 
         btn_wallet_back.setOnClickListener {
             finish()
         }
-    }
-
-    private fun _getCurrency(currency: Double?): String {
-        return NumberFormat.getInstance().format(currency)
     }
 }
