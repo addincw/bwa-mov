@@ -11,14 +11,11 @@ import androidx.core.app.ActivityCompat
 import com.addincendekia.bwa_mov.ProfileActivity
 
 import com.addincendekia.bwa_mov.R
-import com.addincendekia.bwa_mov.WalletActivity
+import com.addincendekia.bwa_mov.wallet.WalletActivity
 import com.addincendekia.bwa_mov.auth.SigninActivity
 import com.addincendekia.bwa_mov.utils.UserPreferences
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
-import kotlinx.android.synthetic.main.fragment_movie.*
 import kotlinx.android.synthetic.main.fragment_profile.*
 
 // TODO: Rename parameter arguments, choose names that match

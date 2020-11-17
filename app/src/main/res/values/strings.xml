@@ -53,4 +53,5 @@
     <string name="wallet_amount_label">Saldo Tersedia</string>
     <string name="wallet_history">Daftar Transaksi</string>
     <string name="profile_signout">Keluar</string>
+    <string name="wallet_topup_now">Topup Sekarang</string>
 </resources>

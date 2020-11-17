@@ -121,6 +121,7 @@ class SignupActivity : AppCompatActivity() {
     private fun _storeUserData(user: User?): Boolean {
         return try {
             userPref.setValue("username", user?.username.toString())
+            userPref.setValue("password", user?.password.toString())
             userPref.setValue("nama", user?.nama.toString())
             userPref.setValue("email", user?.email.toString())
             userPref.setValue("url", user?.url.toString())

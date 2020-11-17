@@ -5,7 +5,22 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorAppBase"
-        tools:context=".WalletActivity">
+        tools:context=".wallet.WalletActivity">
+
+    <Button
+            android:id="@+id/btn_wallet_topup"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/button_rounded_primary"
+            android:text="@string/wallet_topup_now"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
             android:id="@+id/tv_now_playing2"
@@ -79,6 +94,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_wallet_amount" />
 
     <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_wallet_history"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -87,6 +103,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_now_playing2"
-            tools:listitem="@layout/recycleview_wallet_list"
-            tools:itemCount="4" />
+            tools:itemCount="4"
+            tools:listitem="@layout/recycleview_wallet_list" />
 </androidx.constraintlayout.widget.ConstraintLayout>

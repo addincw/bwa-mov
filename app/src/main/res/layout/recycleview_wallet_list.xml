@@ -14,7 +14,7 @@
             android:maxLines="1"
             android:textColor="#FFFFFF"
             android:textSize="18dp"
-            android:textStyle="bold"
+            android:textStyle="normal"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Guardian of the.." />

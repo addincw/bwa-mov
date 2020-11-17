@@ -1,8 +1,10 @@
 package com.addincendekia.bwa_mov.main.fragments
 
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -51,7 +53,10 @@ class MovieFragment : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_movie, container, false)
     }
-
+    override fun onStart() {
+        super.onStart()
+        _bindViewUserData()
+    }
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
@@ -61,16 +66,11 @@ class MovieFragment : Fragment() {
         userPref = UserPreferences(activity!!.applicationContext)
 //        userPref.reset()
 
-        tv_username.text = userPref.getValue("username")
-        tv_saldo.text = "IDR " + Currency(userPref.getValue("saldo")?.toDouble()).toRupiah()
+        _bindViewUserData()
 
         iv_url.setOnClickListener{
             startActivity(Intent(activity?.applicationContext, ProfileActivity::class.java))
         }
-        Glide.with(this)
-            .load(userPref.getValue("url"))
-            .apply(RequestOptions.circleCropTransform())
-            .into(iv_url)
 
         rv_now_playing.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         rv_coming_soon.layoutManager = LinearLayoutManager(context)
@@ -79,6 +79,14 @@ class MovieFragment : Fragment() {
         _fetchFilmComingSoon(rv_coming_soon)
     }
 
+    private fun _bindViewUserData() {
+        tv_username.text = userPref.getValue("nama")
+        tv_saldo.text = "IDR " + Currency(userPref.getValue("saldo")?.toDouble()).toRupiah()
+        Glide.with(this)
+            .load(userPref.getValue("url"))
+            .apply(RequestOptions.circleCropTransform())
+            .into(iv_url)
+    }
     private fun _fetchFilmNowPlaying(rvTarget: RecyclerView) {
         fbDBFilmRef.addValueEventListener(object : ValueEventListener {
             override fun onCancelled(dbError: DatabaseError) {
