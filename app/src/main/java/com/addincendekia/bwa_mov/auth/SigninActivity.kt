@@ -47,8 +47,10 @@ class SigninActivity : AppCompatActivity() {
             
            
             if(_validationField()) {
-                btn_signin.setText("loading...")
-                btn_signin.apply { isEnabled = false }
+                btn_signin.apply {
+                    text = "loading..."
+                    isEnabled = false
+                }
                 _requestSignin(fieldUsername, fieldPassword)
             }
         }

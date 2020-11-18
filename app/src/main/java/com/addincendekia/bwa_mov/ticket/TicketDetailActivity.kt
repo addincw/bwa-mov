@@ -3,14 +3,22 @@ package com.addincendekia.bwa_mov.ticket
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.widget.Button
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.addincendekia.bwa_mov.R
 import com.addincendekia.bwa_mov.adapters.CheckoutSeatAdapter
+import com.addincendekia.bwa_mov.adapters.FilmActorAdapter
 import com.addincendekia.bwa_mov.models.Film
+import com.addincendekia.bwa_mov.models.FilmActor
+import com.addincendekia.bwa_mov.models.User
 import com.bumptech.glide.Glide
+import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_checkout_preview.*
 import kotlinx.android.synthetic.main.activity_movie.*
 import kotlinx.android.synthetic.main.activity_ticket_detail.*
@@ -21,6 +29,8 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class TicketDetailActivity : AppCompatActivity() {
+    private lateinit var fbDB: FirebaseDatabase
+    private lateinit var fbDBFilmRef: DatabaseReference
     private lateinit var film: Film
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,18 +42,24 @@ class TicketDetailActivity : AppCompatActivity() {
         val selectedSeats = mutableSetOf<String>("A1", "A2", "A3", "A4")
         val adapter = CheckoutSeatAdapter(selectedSeats)
 
-        film = intent.getParcelableExtra<Film>("film")
+        fbDB = FirebaseDatabase.getInstance()
+        fbDBFilmRef = fbDB.getReference("Film")
 
-        tv_ticket_title.text = film.judul
-        tv_ticket_genre.text = film.genre
-        tv_ticket_rating.text = film.rating
-        tv_ticket_date.text = currentDate
-        tv_ticket_location.text = "Tunjungan Plaza, Cinema 1"
-        tv_seat_label.text = "Seats (${adapter.itemCount})"
+        if(intent.hasExtra("film")){
+            film = intent.getParcelableExtra<Film>("film")
+            bindViewData(currentDate, film, adapter)
+        }else{
+            fbDBFilmRef.child("Avengers").addListenerForSingleValueEvent(object: ValueEventListener {
+                override fun onCancelled(dbError: DatabaseError) {
+                    Toast.makeText(this@TicketDetailActivity, "gagal memuat data film: " + dbError.message, Toast.LENGTH_LONG).show()
+                }
 
-        Glide.with(this)
-            .load(film.poster)
-            .into(iv_ticket_poster)
+                override fun onDataChange(data: DataSnapshot) {
+                    film = data.getValue(Film::class.java)!!
+                    bindViewData(currentDate, film, adapter)
+                }
+            })
+        }
 
         rv_preview_seats.layoutManager = LinearLayoutManager(this)
         rv_preview_seats.adapter = adapter
@@ -68,5 +84,22 @@ class TicketDetailActivity : AppCompatActivity() {
 
             qrcodeModal.show()
         }
+    }
+
+    private fun bindViewData(
+        currentDate: String,
+        film: Film,
+        adapter: CheckoutSeatAdapter
+    ) {
+        tv_ticket_title.text = film.judul
+        tv_ticket_genre.text = film.genre
+        tv_ticket_rating.text = film.rating
+        tv_ticket_date.text = currentDate
+        tv_ticket_location.text = "Tunjungan Plaza, Cinema 1"
+        tv_seat_label.text = "Seats (${adapter.itemCount})"
+
+        Glide.with(this)
+            .load(film.poster)
+            .into(iv_ticket_poster)
     }
 }
