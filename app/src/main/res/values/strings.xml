@@ -54,4 +54,7 @@
     <string name="wallet_history">Daftar Transaksi</string>
     <string name="profile_signout">Keluar</string>
     <string name="wallet_topup_now">Topup Sekarang</string>
+    <string name="topup_title">Topup</string>
+    <string name="topup_custom">Topup Sesukamu</string>
+    <string name="topup_options">Topup Pilihan</string>
 </resources>

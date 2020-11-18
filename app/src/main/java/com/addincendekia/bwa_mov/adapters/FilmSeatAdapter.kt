@@ -4,13 +4,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.addincendekia.bwa_mov.R
-import com.addincendekia.bwa_mov.models.FilmActor
 import com.addincendekia.bwa_mov.models.FilmSeat
-import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
 
 class FilmSeatAdapter(private val filmSeatData: List<FilmSeat>) : RecyclerView.Adapter<FilmSeatAdapter.SeatViewHolder>() {
     private var onItemClickCallback: OnItemClickCallback? = null
@@ -20,7 +16,7 @@ class FilmSeatAdapter(private val filmSeatData: List<FilmSeat>) : RecyclerView.A
     }
 
     class SeatViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var ivSeat: ImageView = itemView.findViewById(R.id.iv_seat)
+        var ivSeat: ImageView = itemView.findViewById(R.id.iv_topup_option)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SeatViewHolder {

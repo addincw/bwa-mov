@@ -36,8 +36,8 @@
 
     <ImageView
             android:id="@+id/btn_wallet_back"
-            android:layout_width="0dp"
-            android:layout_height="24dp"
+            android:layout_width="20dp"
+            android:layout_height="22dp"
             android:layout_marginStart="20dp"
             android:clickable="true"
             app:layout_constraintBottom_toBottomOf="@+id/tv_wallet_title"

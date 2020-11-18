@@ -6,7 +6,7 @@
         android:layout_height="wrap_content">
 
     <ImageView
-            android:id="@+id/iv_seat"
+            android:id="@+id/iv_topup_option"
             android:layout_width="36dp"
             android:layout_height="36dp"
             android:layout_marginBottom="15dp"

@@ -1,5 +1,6 @@
 package com.addincendekia.bwa_mov.wallet
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.content.ContextCompat
@@ -42,6 +43,9 @@ class WalletActivity : AppCompatActivity() {
 
         btn_wallet_back.setOnClickListener {
             finish()
+        }
+        btn_wallet_topup.setOnClickListener {
+            startActivity(Intent(this, TopupActivity::class.java))
         }
     }
 }

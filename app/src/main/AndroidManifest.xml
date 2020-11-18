@@ -17,8 +17,6 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme.noActionBar">
-        <activity android:name=".wallet.TopupFinishActivity"></activity>
-        <activity android:name=".wallet.TopupActivity" />
 
         <provider
                 android:name="androidx.core.content.FileProvider"
@@ -32,6 +30,8 @@
 
         <activity android:name=".ProfileActivity" />
         <activity android:name=".wallet.WalletActivity" />
+        <activity android:name=".wallet.TopupFinishActivity"></activity>
+        <activity android:name=".wallet.TopupActivity" />
         <activity android:name=".MovieActivity" />
         <activity android:name=".ticket.CheckoutPreviewActivity" />
         <activity android:name=".ticket.TicketActivity" />
