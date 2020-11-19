@@ -1,5 +1,6 @@
 package com.addincendekia.bwa_mov.wallet
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -47,7 +48,12 @@ class TopupActivity : AppCompatActivity() {
         btn_topup_back.setOnClickListener {
             finish()
         }
-        btn_topup_now.setOnClickListener {  }
+        btn_topup_now.setOnClickListener {
+            Intent(this, TopupFinishActivity::class.java).also {
+                finish()
+                startActivity(it)
+            }
+        }
         field_topup.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
                 return
